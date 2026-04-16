@@ -21,6 +21,9 @@ df = df.rename(columns={
     "Base": "base_code"
 })
 
+# Uber dataset: M/D/YYYY H:MM:SS --> MySQL format: YYYY-MM-DD HH:MM:SS
+df["pickup_datetime"] = pd.to_datetime(df["pickup_datetime"])
+
 # connection
 engine = create_engine(
     f"mysql+pymysql://lipesszy:{PW}@mysql.agh.edu.pl/lipesszy"
@@ -32,7 +35,7 @@ df.to_sql(
     con=engine,
     if_exists="append",
     index=False,
-    chunksize=5000
+    chunksize=5000  #lots of data
 )
 
-print("Data inserted successfully.")
+print("Data inserted successfully.") 
