@@ -28,7 +28,7 @@ Without proper dimensional modeling, running complex spatial and temporal analyt
 
 
 ## Key Relational Features:
-* **One-to-Many ($1:N$) Relationships:** Enforced via strict SQL Foreign Keys (`FK`).
+* **One-to-Many ($1:N$) Relationships:** Enforced via strict SQL Foreign Keys.
 * **Data Integrity:** Cascade checks prevent orphan records between dimension tables and fact logs.
 * **Storage Optimization:** String labels (e.g., city names, payment methods) are extracted into lookup tables to reduce redundancy across 50,000 rows.
 
